@@ -1,0 +1,55 @@
+<ion-content [fullscreen]="true">
+  <div class="conatiner">
+  <!-- <h2>hello</h2> -->
+  <div class="header">
+    <ion-title class="title">Welcome</ion-title>
+    <p class="subtitle">Sign in to access your account</p>
+  </div>
+
+  <form [formGroup]="loginform" (ngSubmit)="loginUser()">
+
+    <div class="ion-padding">
+      <ion-item>
+        <ion-input  formControlName="email" class="input" placeholder="Email/Unique ID." style="color: rgb(145, 140, 140);"></ion-input>
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-item>
+      <div *ngIf="errorControl['email'].touched && errorControl['email'].invalid">
+        <ion-text *ngIf="errorControl['email'].errors?.['required']">Email is Reqiured</ion-text>
+        <ion-text  *ngIf="errorControl['email'].errors?.['pattern']">Email should be Valid</ion-text>
+      </div>
+
+      <ion-item>
+        <ion-input formControlName="password" class="input" placeholder="password" style="color: rgb(145, 140, 140);"></ion-input>
+        <ion-icon name="lock-closed-outline"></ion-icon>
+      </ion-item>
+      <div *ngIf="errorControl['password'].touched && errorControl['password'].invalid">
+        <ion-text *ngIf="errorControl['password'].errors?.['required']">password is Required</ion-text>
+        <ion-text *ngIf="errorControl['password'].errors?.['pattern']">password should be <br>
+        1. uppercase <br>
+        2. lowercase <br>
+        3. unique Sign <br>
+        4. numbers</ion-text>
+      </div>
+     
+
+      <div class="forgetpassword">
+        <ion-router-link routerLink="/reset" style="color: rgb(230, 10, 230); text-decoration: none;">
+          forget password?
+        </ion-router-link>
+      </div>
+      <div class="signup">
+        <p><ion-router-link routerLink="/signup" style="color: rgb(230, 10, 230); text-decoration: none;">
+          Signup for new Account?
+        </ion-router-link></p>
+      </div>
+    </div>
+  </form>
+</div>
+</ion-content>
+<ion-fab vertical="bottom" horizontal="end" style="margin-right: 20px;margin-bottom: 15px;">
+  <ion-fab-button (click)="loginUser()">
+
+    <ion-icon name="chevron-forward"></ion-icon>
+   
+  </ion-fab-button>
+  <br>

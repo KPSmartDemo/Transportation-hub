@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-searchbar [debounce]="1000" (ionInput)="handleInput($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let truck of results; let i = index; trackBy: trackByFn">
+      <div class="card">
+        <ion-card>
+          <ion-card-header>
+            
+          </ion-card-header>
+          <ion-card-content>
+
+            <div class="name">
+              <ion-icon name="car" size="large" color="danger" id="icon"></ion-icon>
+            <h2 style="color :black;"> name :</h2>
+            <h2>{{ cardTitles[i % cardTitles.length] }}</h2>
+          </div>
+
+          <div class="name">
+            <ion-icon name="tv" size="large" color="Warning" ></ion-icon>
+            <h2 style="color: black;">Truck Number</h2>
+            <h2>{{ truck }}</h2>
+            </div>
+            <div class="btn">
+              <ion-button expand="full" shape="round" color="primary">See truck deatils</ion-button>
+          </div>
+          </ion-card-content>
+        </ion-card>
+        
+      </div>
+
+
+
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,47 @@
+<ion-content [fullscreen]="true">
+  <!-- <h2>hello</h2> -->
+  <div class="header">
+    <ion-title class="title">Welcome</ion-title>
+    <p class="subtitle">Reset Password</p>
+  </div>
+
+  <form >
+
+    <div class="ion-padding">
+      <ion-item>
+        <ion-input [(ngModel)]="email" name="email"  [ngModelOptions]="{standalone: true}" class="input" placeholder="Email/Unique ID." style="color: rgb(145, 140, 140);"></ion-input>
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-item>
+      
+
+      <!-- <ion-item>
+        <ion-input class="input" placeholder="OTP" style="color: rgb(145, 140, 140);"></ion-input>
+        <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+      </ion-item> -->
+      <ion-item>
+        <ion-input [(ngModel)]="password" name="password"  class="input" placeholder="enter new password" style="color: rgb(145, 140, 140);"></ion-input>
+        <ion-icon name="lock-closed-outline"></ion-icon>
+      </ion-item>
+     
+
+      <!-- <ion-item>
+        <ion-input class="input" placeholder="enter confirm password" style="color: rgb(145, 140, 140);"></ion-input>
+        <ion-icon name="lock-closed-outline"></ion-icon>
+      </ion-item> -->
+      <!-- <div class="forgetpassword">
+        <ion-router-link routerLink="/signup" style="color: rgb(230, 10, 230); text-decoration: none;">
+          Signup for new Account
+        </ion-router-link>
+      </div> -->
+      <div class="signup">
+        <p>New Member?<a><ion-router-link routerLink="/signup" style="color: rgb(230, 10, 230); text-decoration: none;">signUp</ion-router-link></a></p>
+        <!-- <p>New Member? <ion-router-link routerLink="/signup"></ion-router-link> style="color: rgb(230,10,230); text-decoration: none;">signup now</p> -->
+      </div>
+    </div>
+  </form>
+</ion-content>
+<ion-fab vertical="bottom" horizontal="end" style="margin-right: 20px;margin-bottom: 15px;">
+  <ion-fab-button (click)="resetpassword()">
+    
+    <ion-icon name="chevron-forward"></ion-icon>
+  </ion-fab-button>

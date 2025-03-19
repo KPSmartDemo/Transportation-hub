@@ -1,0 +1,121 @@
+<ion-content [fullscreen]="true">
+  <ion-app>
+    <ion-menu contentId="main-content">
+      
+       <ion-content>
+        <div class="header-bg">
+            Menu
+        </div>
+
+      <ion-list lines="none" class="menu-items">
+       <ion-item routerLink="/menu">
+        <ion-icon name="apps"></ion-icon>Dashboard
+       </ion-item>
+       <ion-item class="active">
+        <ion-icon name="car"></ion-icon>Vehical Deatils
+       </ion-item>
+       <ion-item>
+        <ion-icon name="map"></ion-icon>Route management
+       </ion-item>
+       <ion-item>
+        <ion-icon name="map"></ion-icon>disable
+       </ion-item>
+       <ion-item>
+        <ion-icon name="map"></ion-icon>disable
+       </ion-item>
+       <ion-item (click)="signout()" class="sign-out">
+        <ion-icon name="power"></ion-icon>Sign Out
+       </ion-item>
+
+      </ion-list>
+
+
+      <div class="header-down">
+
+      </div>
+       </ion-content>
+         
+        
+      
+      <!-- <ion-button expand="block"></ion-button> -->
+      <!-- <ion-button expand="full">Trucks Details</ion-button>
+      <ion-button expand="full">fleet owner Trucks</ion-button>
+      <ion-button expand="full">Routes manage</ion-button>
+
+      <div class="button">
+        <ion-button expand="full" (click)="signout()">Sign Out</ion-button>
+      </div> -->
+
+     
+
+    </ion-menu>
+
+
+
+
+    <div class="ion-page" id="main-content">
+      
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+         
+        </ion-toolbar>
+     
+      <ion-content class="ion-padding">
+        <div class="container">
+         <h1>Welcome to Dashboard</h1>
+        </div>
+        <div class="cards">
+        <ion-card class="info-card">
+          <ion-card-header>
+            <ion-card-title>Trucks</ion-card-title>
+            
+          </ion-card-header>
+          <ion-card-content>
+            <h2>Total Trucks</h2>
+            <h3>20</h3>
+            <ion-button expand="full" color="warning" routerLink="/trucks-link">View Trucks</ion-button>
+          </ion-card-content>
+        </ion-card>
+      
+        <ion-card class="info-card">
+          <ion-card-header>
+            <ion-card-title>Routes</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <h2>Active Routes</h2>
+            <h3>10</h3>
+            <ion-button expand="full"  color="warning">View Routes</ion-button>
+          </ion-card-content>
+        </ion-card>
+      
+        <!-- <ion-card class="dashboard-card">
+          <ion-card-header>
+            <ion-card-title>Manage Fleet</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list>
+              <ion-item button>
+                <ion-label>Manage Trucks</ion-label>
+              </ion-item>
+              <ion-item button>
+                <ion-label>View Routes</ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>   -->
+      </div>
+      <div class="header-down">
+
+      </div>
+      </ion-content>
+    </div>
+  </ion-app>
+
+
+
+
+
+
+</ion-content>

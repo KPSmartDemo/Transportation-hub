@@ -1,0 +1,73 @@
+<ion-content [fullscreen]="true">
+  <!-- <h2>hello</h2> -->
+  <div class="header">
+    <ion-title class="title">Welcome</ion-title>
+    <p class="subtitle">SignUp to create your account</p>
+  </div>
+
+  <form [formGroup]="regform">
+
+    <div class="ion-padding">
+      <ion-item>
+        <ion-input formControlName="fullname" class="input" placeholder="enter fullname" style="color: rgb(145, 140, 140);"></ion-input>
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-item>
+      <div *ngIf="errorControl['fullname'].touched && errorControl['fullname'].invalid">
+        <ion-text *ngIf="errorControl['fullname'].errors?.['required']">Fullname is required</ion-text>
+      </div>
+      
+
+      <ion-item>
+        <ion-input formControlName="email" class="input" placeholder="enter mail id" style="color: rgb(145, 140, 140);"></ion-input>
+        <ion-icon name="mail-outline"></ion-icon>
+      </ion-item>
+      <div *ngIf="errorControl['email'].touched && errorControl['email'].invalid">
+        <ion-text *ngIf="errorControl['email'].errors?.['required']">email is Required</ion-text>
+        <ion-text  *ngIf="errorControl['email'].errors?.['pattern']">email should be valid</ion-text>
+      </div>
+
+      <ion-item>
+        <ion-select label="Role" label-placement="stacked">
+          <ion-select-option value="Fleet Owner">Fleet Owner</ion-select-option>
+          <ion-select-option value="Admin">Admin</ion-select-option>
+          <ion-select-option value="Driver">Driver</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-input formControlName="password" class="input" placeholder="enter password" style="color: rgb(145, 140, 140);"></ion-input>
+        <ion-icon name="lock-closed-outline"></ion-icon>
+      </ion-item>
+      <div *ngIf="errorControl['password'].touched && errorControl['password'].invalid">
+        <ion-text *ngIf="errorControl['password'].errors?.['required']">password is Required</ion-text>
+        <ion-text *ngIf="errorControl['password'].errors?.['pattern']">password should be <br>
+        1. uppercase <br>
+        2. lowercase <br>
+        3. unique Sign <br>
+        4. numbers</ion-text>
+      </div>
+
+      <!-- <ion-item>
+        <ion-input class="input" placeholder="enter confirm password" style="color: rgb(145, 140, 140);"></ion-input>
+        <ion-icon name="lock-closed-outline"></ion-icon>
+      </ion-item> -->
+      <!-- <div *ngIf="errorControl['password'].touched && errorControl['password'].invalid">
+        <ion-text>confirm password is Required</ion-text>
+      </div> -->
+      <!-- <a href="/reset">All ready Created?</a> -->
+      <!-- <div class="signup">
+        <p>allready created login?<a href="login" style="color: rgb(230,10,230); text-decoration: none;">login</a></p>
+      </div> -->
+      <div class="signup">
+      <p><ion-router-link routerLink="/login" style="color: rgb(230, 10, 230); text-decoration: none;">
+        Allready Created login?
+      </ion-router-link></p></div>
+    
+     
+    </div>
+  </form>
+</ion-content>
+<ion-fab vertical="bottom" horizontal="end" style="margin-right: 20px;margin-bottom: 15px;">
+  <ion-fab-button (click)="signup()">
+    <ion-icon name="chevron-forward"></ion-icon>
+  </ion-fab-button>
