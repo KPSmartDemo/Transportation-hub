@@ -1,0 +1,31 @@
+name: Web Build and Deploy  # Name of the workflow
+
+on:
+  push:
+    branches:
+      - main  # Runs when code is pushed to the 'main' branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Runs the workflow on an Ubuntu server
+
+    steps:
+      - name: Checkout Repository  # Pulls the latest code from GitHub
+        uses: actions/checkout@v4
+
+      - name: Set Up Node.js  # Installs Node.js (required for building web apps)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18  # Using Node.js 18
+
+      - name: Install Dependencies  # Installs project dependencies
+        run: npm install
+
+      - name: Build Web App  # Builds the application
+        run: npm run build --if-present
+
+      - name: Deploy to GitHub Pages  # Deploys to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Uses GitHub’s token for authentication
+          publish_dir: ./dist  # Directory containing the built files (Modify this for React or Vue)
